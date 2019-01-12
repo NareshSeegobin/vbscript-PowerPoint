@@ -1,0 +1,208 @@
+Sub Image_ExpandToFullSlide()
+
+
+
+' REM https://msdn.microsoft.com/en-us/library/office/ff743874.aspx?f=255&MSPPError=-2147217396
+
+' https://www.thespreadsheetguru.com/the-code-vault/2014/3/6/resize-an-oversized-pasted-powerpoint-image
+
+' https://www.pcreview.co.uk/threads/loop-through-all-pictures-in-a-presentation-with-vba.924853/
+
+
+
+' https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_mac/how-do-i-interruptstop-a-macro-thats-in-the-middle/ae56febc-726e-4d03-945e-c8aa2d540b00
+
+' Use Command and . to break macro execution
+
+
+
+' https://msdn.microsoft.com/en-us/library/office/ff745524.aspx
+
+' https://msdn.microsoft.com/en-us/library/aa432678(v=office.12).aspx
+
+' https://social.msdn.microsoft.com/Forums/office/en-US/ed9bb125-a4e4-49c5-974a-41565960f3e9/powerpoint-vba-where-are-the-images-hiding-?forum=officegeneral
+
+
+
+
+
+Dim myPic As Object
+
+Dim NewWidth As Long
+
+Dim NewHeight As Long
+
+Dim sld As Slide
+
+Dim shp As Shape
+
+Dim OutputString As String
+
+
+
+
+
+NewHeight = ActivePresentation.PageSetup.SlideHeight
+
+
+
+For Each sld In ActivePresentation.Slides
+
+    For Each shp In sld.Shapes
+
+
+
+OutputString = "Shape Type No.: " & shp.Type & "  Slide Number: " & sld.SlideIndex
+
+'MsgBox OutputString
+
+
+
+        If shp.Type = msoPicture Then
+
+
+
+            'Resize if Height is larger than slide
+
+                NewHeight = ActivePresentation.PageSetup.SlideHeight
+
+    
+
+                If shp.Height < NewHeight Then
+
+                    shp.LockAspectRatio = msoTrue
+
+                    shp.Height = NewHeight
+
+                    shp.Top = 0
+
+                    shp.Left = 0
+
+                End If
+
+        End If ' shp.Type = msoPicture
+
+
+
+        If shp.Type = msoPlaceholder Then
+
+
+
+'MsgBox shp.PlaceholderFormat.ContainedType
+
+
+
+                If shp.PlaceholderFormat.ContainedType = msoPicture Then
+
+                            
+
+                   'Resize if Height is larger than slide
+
+                    NewHeight = ActivePresentation.PageSetup.SlideHeight
+
+    
+
+                    If shp.Height < NewHeight Then
+
+                        shp.LockAspectRatio = msoTrue
+
+                        shp.Height = NewHeight
+
+                        shp.Top = 0
+
+                        shp.Left = 0
+
+                    End If
+
+
+
+                End If 'shp.PlaceholderFormat.ContainedType = msoPicture
+
+
+
+        End If ' shp.Type = msoPlaceholder
+
+
+
+
+
+
+
+
+
+    Next
+
+Next
+
+
+
+
+
+
+
+'Set Obj Variable equal to Current Selected Object
+
+'    On Error GoTo Select_Object
+
+'       Set myPic = ActiveWindow.Selection.ShapeRange
+
+'    On Error GoTo 0
+
+
+
+'Resize if Width is larger than slide
+
+   ' NewWidth = ActivePresentation.PageSetup.SlideWidth
+
+    
+
+   ' If myPic.Width < NewWidth Then
+
+   '     myPic.LockAspectRatio = msoTrue
+
+   '     myPic.Width = NewWidth
+
+   '     myPic.Top = 0
+
+   '     myPic.Left = 0
+
+
+
+    ' End If
+
+        
+
+'Resize if Height is larger than slide
+
+'    NewHeight = ActivePresentation.PageSetup.SlideHeight
+
+    
+
+'    If myPic.Height < NewHeight Then
+
+'        myPic.LockAspectRatio = msoTrue
+
+'        myPic.Height = NewHeight
+
+'        myPic.Top = 0
+
+'        myPic.Left = 0
+
+'    End If
+
+    
+
+'Exit Sub
+
+'Error Handler In Case No Object is Currently Selected
+
+'Select_Object:
+
+'    MsgBox "No object selected to center."
+
+
+
+
+
+End Sub
+
