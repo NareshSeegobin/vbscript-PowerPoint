@@ -12,7 +12,7 @@ Sub Image_ExpandToFullSlide()
 
 ' https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_mac/how-do-i-interruptstop-a-macro-thats-in-the-middle/ae56febc-726e-4d03-945e-c8aa2d540b00
 
-' Use Command and . to break macro execution
+' Use Command and . to break macro execution <-- initially created to run in PowerPoint for MAC, but tested and works in PowerPoint for windows.
 
 
 
