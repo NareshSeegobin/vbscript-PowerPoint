@@ -1,6 +1,21 @@
 Sub Image_ExpandToFullSlide()
 
+' Created by: Naresh Seegobin (www.nareshseegobin.com)
 
+' Purpose: Resizes ALL images in a PowerPoint document to the maximum size of the slide and aligns them to the left of the slide.
+'          Very good if you are taking screenshots of a webpage or other media but you want it to fill the entire slide. 
+
+' Comments: Of all my Googling online, I am unable to find an exact solution for my needs. This is made from various sources online.
+          
+' How To Use: Create a new macro in PowerPoint (View --> Macros --> Enter Macro Name --> Click "Create")
+'             Go to RAW mode for this code, select all content and pase in the Macro. Save the document
+'             (allow PowerPoint to save it as a macroenabmed presentation)
+'             Execute the macro. 
+
+' Revision History: 2018 - Initial version
+'                   20190515 - Cleaned out excess comments and code.
+
+' References and Links:
 ' REM https://msdn.microsoft.com/en-us/library/office/ff743874.aspx?f=255&MSPPError=-2147217396
 ' https://www.thespreadsheetguru.com/the-code-vault/2014/3/6/resize-an-oversized-pasted-powerpoint-image
 ' https://www.pcreview.co.uk/threads/loop-through-all-pictures-in-a-presentation-with-vba.924853/
