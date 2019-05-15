@@ -66,39 +66,4 @@ For Each sld In ActivePresentation.Slides
 Next
 
 
-
-'Set Obj Variable equal to Current Selected Object
-'    On Error GoTo Select_Object
-'       Set myPic = ActiveWindow.Selection.ShapeRange
-'    On Error GoTo 0
-
-
-'Resize if Width is larger than slide
-
-   ' NewWidth = ActivePresentation.PageSetup.SlideWidth
-   ' If myPic.Width < NewWidth Then
-   '     myPic.LockAspectRatio = msoTrue
-   '     myPic.Width = NewWidth
-   '     myPic.Top = 0
-   '     myPic.Left = 0
-    ' End If
-
-'Resize if Height is larger than slide
-
-'    NewHeight = ActivePresentation.PageSetup.SlideHeight
-
-'    If myPic.Height < NewHeight Then
-'        myPic.LockAspectRatio = msoTrue
-'        myPic.Height = NewHeight
-'        myPic.Top = 0
-'        myPic.Left = 0
-'    End If
-
-
-'Exit Sub
-'Error Handler In Case No Object is Currently Selected
-'Select_Object:
-'    MsgBox "No object selected to center."
-
-
 End Sub
